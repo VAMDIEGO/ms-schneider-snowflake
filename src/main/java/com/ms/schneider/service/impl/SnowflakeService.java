@@ -17,8 +17,8 @@ public class SnowflakeService implements ISnowflakeService {
 	private final CustomerRepository repository;
 
 	@Override
-	public List<CustomerDTO> getCustomers() {
-		 return repository.findCustomers();
+	public List<CustomerDTO> getCustomers(int page, int size) {
+		 return repository.findCustomers( page, size);
 	}
 
 }

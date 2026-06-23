@@ -16,8 +16,9 @@ public class CustomerRepository {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	public List<CustomerDTO> findCustomers() {
-
+	public List<CustomerDTO> findCustomers(int page, int size) {
+		int offset = page * size;
+		
         String sql = """
             SELECT 
                 c.C_CUSTOMER_ID,
@@ -35,10 +36,14 @@ public class CustomerRepository {
             FROM CUSTOMER c
             JOIN CUSTOMER_ADDRESS ca 
                 ON c.C_CURRENT_ADDR_SK = ca.CA_ADDRESS_SK
-            LIMIT 100
+            LIMIT ? OFFSET ?
         """;
 
-        return jdbcTemplate.query(sql, (rs, rowNum) -> CustomerDTO.builder()
+        return jdbcTemplate.query(sql,
+                ps -> {
+                    ps.setInt(1, size);
+                    ps.setInt(2, offset);
+                }, (rs, rowNum) -> CustomerDTO.builder()
                 .customerId(rs.getString("C_CUSTOMER_ID"))
                 .firstName(rs.getString("C_FIRST_NAME"))
                 .lastName(rs.getString("C_LAST_NAME"))

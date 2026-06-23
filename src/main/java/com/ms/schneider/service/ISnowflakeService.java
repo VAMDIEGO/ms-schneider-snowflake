@@ -6,6 +6,6 @@ import com.ms.schneider.dto.CustomerDTO;
 
 public interface ISnowflakeService {
 
-	List<CustomerDTO> getCustomers();
+	List<CustomerDTO> getCustomers(int page, int size);
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ms.schneider.dto.CustomerDTO;
@@ -24,8 +25,11 @@ public class SnowflakeController {
 		this.iSnowflakeService = service;
 	}
 
-	@GetMapping
-	public List<CustomerDTO> getCustomers() {
-		return iSnowflakeService.getCustomers();
+	@GetMapping()
+	public List<CustomerDTO> getCustomers(
+	        @RequestParam(defaultValue = "0") int page,
+	        @RequestParam(defaultValue = "10") int size) {
+
+	    return iSnowflakeService.getCustomers(page, size);
 	}
 }
