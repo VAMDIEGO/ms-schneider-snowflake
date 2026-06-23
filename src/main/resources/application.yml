@@ -14,9 +14,10 @@ spring:
       enabled: true
 
 snowflake:
-  url: jdbc:snowflake://<your_account>.snowflakecomputing.com
-  user: ${SNOWFLAKE_USER}
-  password: ${SNOWFLAKE_PASSWORD}
+  url: jdbc:snowflake://knivgkl-kjb88780.snowflakecomputing.com 
+ # https://knivgkl-kjb88780.snowflakecomputing.com
+  user: ${VAMD990828}
+  password: ${Lf9FhKLXutY9tEC}
   warehouse: ${SNOWFLAKE_WAREHOUSE:COMPUTE_WH}
   database: SNOWFLAKE_SAMPLE_DATA
   schema: TPCDS_SF100TCL
