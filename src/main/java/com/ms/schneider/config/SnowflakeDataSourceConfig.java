@@ -41,6 +41,7 @@ public class SnowflakeDataSourceConfig {
         ds.addDataSourceProperty("db", database);
         ds.addDataSourceProperty("schema", schema);
         ds.addDataSourceProperty("role", role);
+        ds.addDataSourceProperty("arrow_enabled", "false");
 
         return ds;
     }

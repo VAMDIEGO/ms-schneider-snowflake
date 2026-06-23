@@ -19,10 +19,10 @@ snowflake:
  #Nota: Recordar agregar datos sensibles a archivo de ambiente .env(Crearlo)
   user: VAMD990828
   password: Lf9FhKLXutY9tEC
-  warehouse: SNOWFLAKE_WAREHOUSE:COMPUTE_WH
+  warehouse: COMPUTE_WH
   database: SNOWFLAKE_SAMPLE_DATA
   schema: TPCDS_SF100TCL
-  role: SNOWFLAKE_ROLE:ACCOUNTADMIN
+  role: ACCOUNTADMIN
   timezone: UTC
 
 management:

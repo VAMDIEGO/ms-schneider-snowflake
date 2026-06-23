@@ -18,10 +18,10 @@ public class CustomerRepository {
 	@SuppressWarnings("deprecation")
 	public List<CustomerDTO> findCustomers() {
 
-		String sql = "SELECT C_CUSTOMER_ID, C_FIRST_NAME, C_LAST_NAME, C_EMAIL_ADDRESS, C_BIRTH_DAY, C_BIRTH_MONTH, C_BIRTH_DAY FROM CUSTOMERS LIMIT 100";
+		String sql = "SELECT C_CUSTOMER_ID, C_FIRST_NAME, C_LAST_NAME, C_EMAIL_ADDRESS, C_BIRTH_DAY, C_BIRTH_MONTH, C_BIRTH_DAY FROM CUSTOMER LIMIT 100";
 
 		return jdbcTemplate.query(sql, new Object[] {},
-				(rs, rowNum) -> CustomerDTO.builder().customerId(rs.getLong("C_CUSTOMER_ID")).firstName(rs.getString("C_FIRST_NAME"))
+				(rs, rowNum) -> CustomerDTO.builder().customerId(rs.getString("C_CUSTOMER_ID")).firstName(rs.getString("C_FIRST_NAME"))
 						.lastName(rs.getString("C_LAST_NAME")).email(rs.getString("C_EMAIL_ADDRESS")).birthDay(rs.getInt("C_BIRTH_DAY"))
 						.birthMonth(rs.getInt("C_BIRTH_MONTH")).birthYear(rs.getInt("C_BIRTH_DAY")).build());
 	}
