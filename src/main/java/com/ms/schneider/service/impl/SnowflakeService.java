@@ -21,4 +21,9 @@ public class SnowflakeService implements ISnowflakeService {
 		 return repository.findCustomers( page, size);
 	}
 
+	@Override
+	public CustomerDTO getCustomerById(String id) {
+		return repository.findCustomerById(id);
+	}
+
 }
