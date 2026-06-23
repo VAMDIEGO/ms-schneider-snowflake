@@ -8,6 +8,6 @@ public interface ISnowflakeService {
 
 	List<CustomerDTO> getCustomers(int page, int size);
 	
-	public CustomerDTO getCustomerById(String id) ;
+	CustomerDTO getCustomerById(String id) ;
 
 }

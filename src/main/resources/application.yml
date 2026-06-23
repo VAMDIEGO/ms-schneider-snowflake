@@ -1,9 +1,15 @@
 server:
-  port: 8081
+  port: 8080
   servlet:
     context-path: /api/schneider/v1
 
 spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
   application:
     name: ms-schneider-snowflake
 
@@ -24,6 +30,7 @@ snowflake:
   schema: TPCDS_SF100TCL
   role: ACCOUNTADMIN
   timezone: UTC
+
 
 management:
   endpoints:
