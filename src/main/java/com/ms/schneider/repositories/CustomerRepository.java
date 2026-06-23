@@ -3,9 +3,10 @@ package com.ms.schneider.repositories;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.ms.schneider.dto.CustomerDTO;
-
+@Repository
 public class CustomerRepository {
 
 	private final JdbcTemplate jdbcTemplate;
