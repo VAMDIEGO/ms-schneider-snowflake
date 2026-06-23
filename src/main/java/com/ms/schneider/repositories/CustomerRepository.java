@@ -21,7 +21,7 @@ public class CustomerRepository {
 
 		return jdbcTemplate.query(sql, new Object[] {},
 				(rs, rowNum) -> CustomerDTO.builder().customerId(rs.getLong("C_CUSTOMER_ID")).firstName(rs.getString("C_FIRST_NAME"))
-						.lastName(rs.getString("C_LAST_NAME")).email(rs.getString("C_EMAIL_ADDRESS")).birthDay(rs.getString("C_BIRTH_DAY"))
-						.birthMonth(rs.getString("C_BIRTH_MONTH")).birthYear(rs.getString("C_BIRTH_DAY")).build());
+						.lastName(rs.getString("C_LAST_NAME")).email(rs.getString("C_EMAIL_ADDRESS")).birthDay(rs.getInt("C_BIRTH_DAY"))
+						.birthMonth(rs.getInt("C_BIRTH_MONTH")).birthYear(rs.getInt("C_BIRTH_DAY")).build());
 	}
 }
