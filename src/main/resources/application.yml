@@ -16,6 +16,7 @@ spring:
 snowflake:
   url: jdbc:snowflake://knivgkl-kjb88780.snowflakecomputing.com 
  # https://knivgkl-kjb88780.snowflakecomputing.com
+ #Nota: Recordar agregar datos sensibles a archivo de ambiente .env(Crearlo)
   user: VAMD990828
   password: Lf9FhKLXutY9tEC
   warehouse: SNOWFLAKE_WAREHOUSE:COMPUTE_WH
