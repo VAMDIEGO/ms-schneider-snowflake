@@ -13,6 +13,10 @@ spring:
   application:
     name: ms-schneider-snowflake
 
+  data:
+    mongodb:
+      uri: mongodb://admin:pass@localhost:27017/customerdb?authSource=admin
+
   devtools:
     restart:
       enabled: true

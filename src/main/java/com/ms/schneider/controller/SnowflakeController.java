@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ms.schneider.dto.CustomerDTO;
+import com.ms.schneider.entity.CustomerMongoData;
+import com.ms.schneider.service.ICustomerMongoService;
 import com.ms.schneider.service.ISnowflakeService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,17 +25,22 @@ import lombok.AllArgsConstructor;
 public class SnowflakeController {
 
 	private final ISnowflakeService iSnowflakeService;
+	private final ICustomerMongoService iCustomerMongoService;
 
 	@GetMapping()
-	public List<CustomerDTO> getCustomers(
-	        @RequestParam(defaultValue = "0") int page,
-	        @RequestParam(defaultValue = "10") int size) {
+	public List<CustomerDTO> getCustomers(@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "10") int size) {
 
-	    return iSnowflakeService.getCustomers(page, size);
+		return iSnowflakeService.getCustomers(page, size);
 	}
-	
+
 	@GetMapping("/fetch/{id}")
 	public CustomerDTO getCustomerById(@PathVariable String id) {
-	    return iSnowflakeService.getCustomerById(id);
+		return iSnowflakeService.getCustomerById(id);
+	}
+
+	@GetMapping("/mongo")
+	public List<CustomerMongoData> getAllFromMongo() {
+		return iCustomerMongoService.getAllCustomers();
 	}
 }
