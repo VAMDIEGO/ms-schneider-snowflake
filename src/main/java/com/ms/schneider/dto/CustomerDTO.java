@@ -15,4 +15,5 @@ public class CustomerDTO {
     private int birthMonth;
     private int birthYear;
     private String email;
+    private AddressDTO address;
 }
