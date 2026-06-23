@@ -1,5 +1,31 @@
 package com.ms.schneider.controller;
 
+import java.util.List;
+
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ms.schneider.dto.CustomerDTO;
+import com.ms.schneider.service.ISnowflakeService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@RestController
+@RequestMapping("/customers")
+@Tag(name = "Clientes", description = "Operaciones de gestión de clientes")
+@Validated
 public class SnowflakeController {
 
+	private final ISnowflakeService iSnowflakeService;
+
+	public SnowflakeController(ISnowflakeService service) {
+		this.iSnowflakeService = service;
+	}
+
+	@GetMapping
+	public List<CustomerDTO> getCustomers() {
+		return iSnowflakeService.getCustomers();
+	}
 }
